@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="card diagram">
+    <div class="controls">
+      <label for="branches">Número de ramas iniciales:</label>
+      <input
+        type="number"
+        id="branches"
+        [(ngModel)]="branches"
+        min="2"
+        max="5"
+        (change)="generateTree()"
+      />
+      <button class="button" (click)="generateTree()">Generar Diagrama</button>
+    </div>
+    <h2>Diagrama de Árbol</h2>
+    <svg id="tree-diagram" width="1000" height="600"></svg>
+  </div>
+  <div class="card calculations">
+    <h2>Configuración de Nodos</h2>
+    <div *ngFor="let node of treeNodes; let i = index" class="node-config">
+      <p>Nodo {{ i + 1 }}:</p>
+      <label>Probabilidad:</label>
+      <input
+        type="number"
+        [(ngModel)]="node.probability"
+        min="0"
+        max="1"
+        step="0.01"
+        (change)="updateProbabilities()"
+      />
+      <div class="subnodes">
+        <div *ngFor="let subNode of node.subNodes; let j = index">
+          <p>Subnodo {{ i + 1 }}.{{ j + 1 }}:</p>
+          <label>Probabilidad:</label>
+          <input
+            type="number"
+            [(ngModel)]="subNode.probability"
+            min="0"
+            max="1"
+            step="0.01"
+            (change)="updateSubNodeProbability(i, j)"
+          />
+        </div>
+      </div>
+    </div>
+    <h3>Probabilidad Total (A favor): {{ totalFavor }}</h3>
+    <h3>Probabilidad Total (En contra): {{ totalContra }}</h3>
+  </div>
+</div>

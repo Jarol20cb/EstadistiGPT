@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card.diagram {
+  flex: 2;
+  min-width: 300px;
+  max-width: 60%;
+}
+
+.card.calculations {
+  flex: 1;
+  min-width: 300px;
+  max-width: 35%;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls label {
+  flex: 1;
+  min-width: 150px;
+}
+
+.controls input {
+  flex: 0.5;
+}
+
+#tree-diagram {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  margin-top: 20px;
+}
+
+.node-config {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid var(--color-button);
+  border-radius: 5px;
+}
+
+.node-config p {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: var(--color-subtitle);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .card.diagram {
+    max-width: 100%;
+  }
+
+  .card.calculations {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls label {
+    font-size: 0.9rem;
+  }
+
+  .controls input {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+
+  .controls button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}

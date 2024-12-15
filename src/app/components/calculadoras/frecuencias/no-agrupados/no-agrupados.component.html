@@ -1,0 +1,61 @@
+<div class="container">
+  <h2 class="title">Tabla de Frecuencias No Agrupados</h2>
+  <div class="frequencies-content">
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th> Fi </th>
+            <th> Fi </th>
+            <th> hi </th>
+            <th> Hi </th>
+            <th> Fi% </th>
+            <th> Hi% </th>
+            <th> Acción </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data; let i = index">
+            <td>
+              <input
+                type="text"
+                [(ngModel)]="row.nombre"
+                placeholder="Nombre"
+                class="table-input"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                [(ngModel)]="row.fi"
+                (input)="updateCalculations()"
+                placeholder="Fi"
+                class="table-input"
+              />
+            </td>
+            <td>{{ row.fiAcumulado }}</td>
+            <td>{{ row.hi | number: '1.2-2' }}</td>
+            <td>{{ row.hiAcumulado | number: '1.2-2' }}</td>
+            <td>{{ row.fiPercent | number: '1.2-2' }}%</td>
+            <td>{{ row.hiPercent | number: '1.2-2' }}%</td>
+            <td>
+              <button (click)="removeRow(i)" class="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>            
+          </tr>
+        </tbody>
+      </table>
+      <button class="button-secondary" (click)="addRow()">Agregar fila</button>
+    </div>
+    <div class="card">
+      <ng-container *ngIf="data.length > 0 && totalFi > 0; else noData">
+        <canvas id="chart"></canvas>
+      </ng-container>
+      <ng-template #noData>
+        <p class="no-data-text">Sin datos para graficar</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<header class="navbar">
+  <div class="navbar-logo">
+    <img src="assets/img/estadistica.png" alt="Logo Estadística">
+  </div>
+  <button class="navbar-toggle" (click)="toggleMenu()">
+    <span class="hamburger-icon"></span>
+    <span class="hamburger-icon"></span>
+    <span class="hamburger-icon"></span>
+  </button>
+  <nav class="navbar-links" [class.active]="menuActive">
+    <a routerLink="/home" class="navbar-link">Inicio</a>
+    <a routerLink="/frecuencias-agrupadas" class="navbar-link">Herramientas</a>
+    <a href="#" class="navbar-link">Contacto</a>
+  </nav>
+  <button class="button">Donar</button>
+</header>

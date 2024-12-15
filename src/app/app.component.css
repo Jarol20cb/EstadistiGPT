@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  margin-top: 120px;
+  flex: 1;
+}
+
+app-footer {
+  margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+      margin-top: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+      margin-top: 80px;
+  }
+}

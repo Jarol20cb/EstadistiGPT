@@ -1,0 +1,26 @@
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.2);
+    color: var(--color-subtitle);
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer {
+      font-size: 0.8rem;
+      padding: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .footer {
+      font-size: 0.7rem;
+      padding: 10px;
+    }
+  }
+  

@@ -1,0 +1,92 @@
+.input-section,
+.result-section {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.input-section label,
+.result-section p {
+  font-size: 1rem;
+  color: var(--color-title);
+  text-align: center;
+}
+
+.result-section p {
+  font-weight: bold;
+}
+
+.formula {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.formula strong {
+  color: var(--color-button);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.table-formula-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+  .table-formula-wrapper {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-section label {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .formula {
+    font-size: 0.9rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-section label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .formula {
+    font-size: 0.8rem;
+  }
+
+  .input-section label {
+    font-size: 0.8rem;
+  }
+
+  .button,
+  .button-secondary {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}

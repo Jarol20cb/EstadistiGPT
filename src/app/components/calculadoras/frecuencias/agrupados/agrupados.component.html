@@ -1,0 +1,79 @@
+<div class="container">
+  <h2 class="title">Tabla de Frecuencias Agrupados</h2>
+  <div class="frequencies-content">
+    <!-- Sección de entradas -->
+    <div class="input-section">
+      <label>
+        Valor Mínimo (<span>X<sub>min</sub></span>):
+        <input type="number" [(ngModel)]="valorMinimo" (input)="calcularRango()" placeholder="Valor Mínimo" />
+      </label>
+      <label>
+        Valor Máximo (<span>X<sub>máx</sub></span>):
+        <input type="number" [(ngModel)]="valorMaximo" (input)="calcularRango()" placeholder="Valor Máximo" />
+      </label>
+      <label>
+        Número de Datos (<span>n</span>):
+        <input type="number" [(ngModel)]="numeroDatos" (input)="calcularRango()" placeholder="Número de Datos" />
+      </label>
+    </div>
+
+    <div class="table-formula-wrapper">
+      <div class="card">
+        <h3>Procedimiento</h3>
+        <p class="formula">
+          <strong>Rango:</strong>
+          r = X<sub>máx</sub> - X<sub>min</sub> <br />
+          r = {{ valorMaximo }} - {{ valorMinimo }} = {{ rango }}
+        </p>
+        <p class="formula">
+          <strong>Número de Intervalos:</strong>
+          k = 1 + 3.322 log<sub>10</sub>(n) <br />
+          k = 1 + 3.322 log<sub>10</sub>({{ numeroDatos }}) = {{ numeroClasesDecimales | number: '1.4-4' }} <br />
+          (redondeo simple: {{ numeroClases }})
+        </p>
+        <p class="formula">
+          <strong>Amplitud:</strong>
+          w = r / k <br />
+          w = {{ rango }} / {{ numeroClases }} = {{ amplitud }} (redondeo por exceso)
+        </p>
+      </div>
+      <!-- Tabla de frecuencias -->
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Intervalo</th>
+              <th>fi</th>
+              <th>Fi</th>
+              <th>Xi</th>
+              <th>hi</th>
+              <th>Hi</th>
+              <th>hi%</th>
+              <th>Hi%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let clase of clases; let i = index">
+              <td>{{ clase.intervalo }}</td>
+              <td>
+                <input
+                  type="number"
+                  [(ngModel)]="clase.fi"
+                  (input)="calcularFrecuencias()"
+                  placeholder="f_i"
+                  class="table-input"
+                />
+              </td>
+              <td>{{ clase.fiAcumulado }}</td>
+              <td>{{ clase.marcaClase | number: '1.2-2' }}</td>
+              <td>{{ clase.hi | number: '1.4-4' }}</td>
+              <td>{{ clase.hiAcumulado | number: '1.4-4' }}</td>
+              <td>{{ clase.hiPercent | number: '1.2-2' }}%</td>
+              <td>{{ clase.hiAcumuladoPercent | number: '1.2-2' }}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
