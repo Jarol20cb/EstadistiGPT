@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'frecuencias-agrupadas', component: NoAgrupadosComponent },
   { path: 'frecuencias-no-agrupadas', component: AgrupadosComponent },
-  { path: 'arbol', component: ArbolComponent },
+  { path: 'diagrama-arbol', component: ArbolComponent },
 ];
 
 @NgModule({
